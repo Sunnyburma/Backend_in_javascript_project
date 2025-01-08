@@ -6,12 +6,12 @@ import bcrypt from "bcrypt";
 const userSchema = new Schema(
     {
         username:{
-            type:String,
-            required:true,
-            unique:true,
-            loweCase:true,
-            trim:true,
-            index:true
+            type:String,                      //type have to declear of the username
+            required:true,                    //can't leave blank , its required the username
+            unique:true,                      //should be unique username
+            loweCase:true,                    //should be in lowecase
+            trim:true,                        //not taking the blank and space on the username its trim  
+            index:true                         //using for searching the username in search field
         },
         email:{
             type:String,
@@ -38,7 +38,8 @@ const userSchema = new Schema(
         },
         watchHistory:[
         {
-            type:Schema.Types.ObjectId,
+            type:Schema.Types.ObjectId,             //That's because Schema.Types.ObjectId is a class that inherits from SchemaType, 
+                                                    //not the class you use to create a new MongoDB ObjectId.
             ref:"vedio",
         }
     ],
